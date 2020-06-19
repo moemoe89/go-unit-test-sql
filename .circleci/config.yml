@@ -1,0 +1,33 @@
+version: 2
+jobs:
+  test:
+    working_directory: /go/src/github.com/moemoe89/go-unit-test-sql
+    docker:
+    - image: golang:1.14
+    steps:
+      - checkout
+      - restore_cache: &restore_cache
+          name: Restore go modules cache
+          keys:
+            - go-mod-{{ checksum "go.sum" }}
+      - run: &go_mod_download
+          name: Download go modules to cache
+          command: go mod download
+      - save_cache: &save_cache
+          name: Save go modules cache
+          key: go-mod-{{ checksum "go.sum" }}
+          paths:
+            - /go/pkg/mod/cache
+      - run:
+          name: Run unit tests and measure code coverage
+          command: |
+            go test -v -coverprofile=coverage.out ./...
+            bash <(curl -s https://codecov.io/bash) -P ${CODECOV_TOKEN##*/}
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test:
+          filters:
+            branches:
+              only: /.*/
