@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/moemoe89/go-unit-test-sql.svg?branch=master)](https://travis-ci.org/moemoe89/go-unit-test-sql)
+[![CircleCI](https://circleci.com/gh/moemoe89/go-unit-test-sql.svg?style=svg)](https://circleci.com/gh/moemoe89/go-unit-test-sql)
 [![codecov](https://codecov.io/gh/moemoe89/go-unit-test-sql/branch/master/graph/badge.svg)](https://codecov.io/gh/moemoe89/go-unit-test-sql)
 [![Go Report Card](https://goreportcard.com/badge/github.com/moemoe89/go-unit-test-sql)](https://goreportcard.com/report/github.com/moemoe89/go-unit-test-sql)
 
